@@ -1,7 +1,7 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { data } from "./data.js";
-import mercuryImage from "./assets/planet-neptune.svg";
-import internalMercuryImage from "./assets/planet-neptune-internal.svg";
+import mercuryImage from "./assets/planet-jupiter.svg";
+import internalMercuryImage from "./assets/planet-jupiter-internal.svg";
 import styled from "styled-components";
 const PLANET = styled.section`
   .planetFlex {
@@ -109,7 +109,7 @@ const Jupiter = () => {
   const [theMercuryImage, setTheMercuryImage] = useState(mercuryImage);
   const [size, setSize] = useState();
   useEffect(() => {
-    setMercuryData(data[7]);
+    setMercuryData(data[4]);
     setIsLoading(false);
   }, []);
   function useWindowSize() {
