@@ -42,7 +42,7 @@ const NavBar = ({ open }) => {
     <main>
       <UL open={open}>
         <li>
-          <NavLink to="/mercury" activeClassName="hover" className="border">
+          <NavLink exact to="/" activeClassName="hover" className="border">
             MERCURY
           </NavLink>
         </li>

@@ -47,7 +47,7 @@ const Header = () => {
         </Link>
         <Burger />
       </Nav>
-      <Route exact path="/mercury" component={Mercury} />
+      <Route exact path="/" component={Mercury} />
       <Route exact path="/venus" component={Venus} />
       <Route exact path="/earth" component={Earth} />
       <Route exact path="/mars" component={Mars} />
