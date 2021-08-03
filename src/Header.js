@@ -1,4 +1,3 @@
-import NavBar from "./Navbar";
 import Burger from "./Burger";
 import Mercury from "./Mercury";
 import Venus from "./Venus";
