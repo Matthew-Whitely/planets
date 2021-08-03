@@ -127,9 +127,7 @@ const Jupiter = () => {
     return size;
   }
 
-  if (size <= 750) {
-  }
-  console.log(useWindowSize());
+  useWindowSize();
   return (
     <PLANET className="wrapper">
       <div>
@@ -137,7 +135,7 @@ const Jupiter = () => {
           <div>
             <div className="planetFlex">
               <div className="planetImage">
-                <img src={theMercuryImage} />
+                <img src={theMercuryImage} alt="Planet Jupiter" />
               </div>
               {console.log(mercuryData)}
 

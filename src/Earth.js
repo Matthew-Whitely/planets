@@ -126,8 +126,8 @@ const Earth = () => {
     }, []);
     return size;
   }
+  useWindowSize();
 
-  console.log(useWindowSize());
   return (
     <PLANET className="wrapper">
       <div>
@@ -135,7 +135,7 @@ const Earth = () => {
           <div>
             <div className="planetFlex">
               <div className="planetImage">
-                <img src={theMercuryImage} />
+                <img src={theMercuryImage} alt="Plaent Earth" />
               </div>
               {console.log(mercuryData)}
 

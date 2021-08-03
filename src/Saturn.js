@@ -127,7 +127,7 @@ const Saturn = () => {
     return size;
   }
 
-  console.log(useWindowSize());
+  useWindowSize();
   return (
     <PLANET className="wrapper">
       <div>
@@ -135,7 +135,7 @@ const Saturn = () => {
           <div>
             <div className="planetFlex">
               <div className="planetImage">
-                <img src={theMercuryImage} />
+                <img src={theMercuryImage} alt="Planet Saturn" />
               </div>
               {console.log(mercuryData)}
 

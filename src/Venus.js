@@ -126,6 +126,7 @@ const Venus = () => {
     }, []);
     return size;
   }
+  useWindowSize();
 
   return (
     <PLANET className="wrapper">
@@ -134,7 +135,7 @@ const Venus = () => {
           <div>
             <div className="planetFlex">
               <div className="planetImage">
-                <img src={theMercuryImage} />
+                <img src={theMercuryImage} alt="Planet Venus" />
               </div>
               {console.log(mercuryData)}
 

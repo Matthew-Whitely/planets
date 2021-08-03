@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import { useState } from "react";
 import styled from "styled-components";
 import NavBar from "./Navbar";
