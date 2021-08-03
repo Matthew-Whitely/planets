@@ -66,6 +66,9 @@ const PLANET = styled.section`
     button {
       width: 300px;
     }
+    .planetText h2 {
+      padding-bottom: 25px;
+    }
   }
 
   @media (max-width: 750px) {

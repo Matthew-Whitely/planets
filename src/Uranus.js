@@ -66,9 +66,12 @@ const PLANET = styled.section`
     button {
       width: 300px;
     }
+    .planetText h2 {
+      padding-bottom: 25px;
+    }
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 790px) {
     .planetFlex {
       grid-template-columns: 1fr;
       justify-items: center;
@@ -80,6 +83,7 @@ const PLANET = styled.section`
     .planetText {
       text-align: center;
     }
+
     .planetButtons {
       grid-row: 1/ 2;
       grid-column: 1/3;
@@ -101,7 +105,7 @@ const PLANET = styled.section`
     }
   }
 `;
-const Jupiter = () => {
+const Uranus = () => {
   console.log(useLayoutEffect);
   const [mercuryData, setMercuryData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -124,8 +128,6 @@ const Jupiter = () => {
     return size;
   }
 
-  if (size <= 750) {
-  }
   console.log(useWindowSize());
   return (
     <PLANET className="wrapper">
@@ -152,7 +154,7 @@ const Jupiter = () => {
                 >
                   OVERVIEW
                 </button>
-                {size >= 750 ? (
+                {size >= 790 ? (
                   <button
                     onClick={() => {
                       setButton(mercuryData.structure.content);
@@ -171,7 +173,7 @@ const Jupiter = () => {
                     STRUCTURE
                   </button>
                 )}
-                {size >= 750 ? (
+                {size >= 790 ? (
                   <button
                     onClick={() => {
                       setButton(mercuryData.geology.content);
@@ -217,4 +219,4 @@ const Jupiter = () => {
   );
 };
 
-export default Jupiter;
+export default Uranus;

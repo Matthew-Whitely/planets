@@ -66,9 +66,12 @@ const PLANET = styled.section`
     button {
       width: 300px;
     }
+    .planetText h2 {
+      padding-bottom: 25px;
+    }
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 790px) {
     .planetFlex {
       grid-template-columns: 1fr;
       justify-items: center;
@@ -101,7 +104,7 @@ const PLANET = styled.section`
     }
   }
 `;
-const Earth = () => {
+const Mars = () => {
   console.log(useLayoutEffect);
   const [mercuryData, setMercuryData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -152,7 +155,7 @@ const Earth = () => {
                 >
                   OVERVIEW
                 </button>
-                {size >= 750 ? (
+                {size >= 790 ? (
                   <button
                     onClick={() => {
                       setButton(mercuryData.structure.content);
@@ -171,7 +174,7 @@ const Earth = () => {
                     STRUCTURE
                   </button>
                 )}
-                {size >= 750 ? (
+                {size >= 790 ? (
                   <button
                     onClick={() => {
                       setButton(mercuryData.geology.content);
@@ -217,4 +220,4 @@ const Earth = () => {
   );
 };
 
-export default Earth;
+export default Mars;

@@ -66,9 +66,12 @@ const PLANET = styled.section`
     button {
       width: 300px;
     }
+    .planetText h2 {
+      padding-bottom: 25px;
+    }
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 790px) {
     .planetFlex {
       grid-template-columns: 1fr;
       justify-items: center;
@@ -124,8 +127,6 @@ const Earth = () => {
     return size;
   }
 
-  if (size <= 750) {
-  }
   console.log(useWindowSize());
   return (
     <PLANET className="wrapper">
@@ -152,7 +153,7 @@ const Earth = () => {
                 >
                   OVERVIEW
                 </button>
-                {size >= 750 ? (
+                {size >= 790 ? (
                   <button
                     onClick={() => {
                       setButton(mercuryData.structure.content);
@@ -171,7 +172,7 @@ const Earth = () => {
                     STRUCTURE
                   </button>
                 )}
-                {size >= 750 ? (
+                {size >= 790 ? (
                   <button
                     onClick={() => {
                       setButton(mercuryData.geology.content);

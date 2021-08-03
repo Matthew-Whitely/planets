@@ -315,6 +315,9 @@ section {
 }
 
 @media (max-width: 1220px) {
+  h1 {
+    font-size: 1.7em;
+  }
   p {
     font-size: 1.2rem;
   }
@@ -337,7 +340,7 @@ section {
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 790px) {
   .mainUl {
     flex-flow: column nowrap;
     position: fixed;
@@ -360,6 +363,7 @@ section {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
   .bottomUi li p:nth-child(1) {
     align-self: center;

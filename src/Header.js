@@ -22,8 +22,21 @@ const Nav = styled.nav`
     padding: 0;
     margin: 0;
   }
+  @media (max-width: 1110px) {
+    h1 {
+      font-size: 1.07rem;
+    }
+  }
   @media (max-width: 980px) {
     flex-flow: column nowrap;
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 1.8rem;
+    }
   }
 `;
 const Header = () => {
@@ -31,7 +44,7 @@ const Header = () => {
     <Router>
       <Nav>
         <Link to="/">
-          <h1>The Planets</h1>
+          <h1>THE PLANETS</h1>
         </Link>
         <Burger />
       </Nav>

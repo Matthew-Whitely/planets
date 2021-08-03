@@ -25,7 +25,7 @@ const UL = styled.ul`
   color: purple;
 }
 
-  @media (max-width: 750px) {
+  @media (max-width: 790px) {
     margin: 0;
     flex-flow: column nowrap;
     background-color: rgb(2, 2, 37);

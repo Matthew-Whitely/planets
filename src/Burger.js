@@ -35,7 +35,7 @@ const StyledBurger = styled.div`
       transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0deg)")};
     }
   }
-  @media (max-width: 750px) {
+  @media (max-width: 790px) {
     visibility: visible;
   }
 `;
