@@ -15,6 +15,9 @@ const UL = styled.ul`
   li {
     align-self: center;
   }
+  li:nth-child(8){
+    padding-bottom:50px;
+  }
 
   @media (max-width: 980px) {
     margin-top: 20px;
@@ -38,8 +41,7 @@ const UL = styled.ul`
     padding-top: 3.5rem;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
        a{
-        transform: ${({ open }) =>
-          open ? "translateX(0)" : "translateX(100%)"}
+     margin-bottom:30px;npms
     
   }
   }
