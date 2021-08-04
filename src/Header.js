@@ -1,4 +1,4 @@
-import Burger from "./Burger";
+import NavBar from "./Navbar";
 import Mercury from "./Mercury";
 import Venus from "./Venus";
 import Earth from "./Earth";
@@ -45,7 +45,7 @@ const Header = () => {
         <Link to="/">
           <h1>THE PLANETS</h1>
         </Link>
-        <Burger />
+        <NavBar />
       </Nav>
       <Route exact path="/" component={Mercury} />
       <Route exact path="/venus" component={Venus} />

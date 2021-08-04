@@ -17,12 +17,13 @@ const PLANET = styled.section`
     grid-row: 1/3;
     justify-self: center;
     position: relative;
+    margin-bottom: 40px;
   }
   .icon {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
+    width: 35%;
   }
   .none {
     display: none;

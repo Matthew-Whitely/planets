@@ -1,13 +1,16 @@
 import { NavLink } from "react-router-dom";
-
 import styled from "styled-components";
+import { useState } from "react";
 
 const UL = styled.ul`
+
+
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   z-index:99;
+
 
   li {
     align-self: center;
@@ -32,53 +35,143 @@ const UL = styled.ul`
     width: 300px;
     padding-top: 3.5rem;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+       a{
+        transform: ${({ open }) =>
+          open ? "translateX(0)" : "translateX(100%)"}
+    
   }
-  li {
-    align-content: flex-end;
+  }
+
+`;
+const StyledBurger = styled.div`
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  z-index: 999;
+  visibility: hidden;
+  cursor: pointer;
+  div {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: ${({ open }) => (open ? "white" : "white")};
+    border-radius: 10px;
+    transform-origin: 1px;
+    transition: all 0.3s linear;
+
+    &:nth-child(1) {
+      transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0deg)")};
+    }
+    &:nth-child(2) {
+      transform: ${({ open }) => (open ? "translateX(100%)" : "translateX(0)")};
+      opacity: ${({ open }) => (open ? 0 : 1)};
+    }
+    &:nth-child(3) {
+      transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0deg)")};
+    }
+  }
+  @media (max-width: 790px) {
+    visibility: visible;
   }
 `;
 
-const NavBar = ({ open }) => {
+const NavBar = () => {
+  const [open, setOpen] = useState();
   return (
     <main>
+      <StyledBurger
+        setOpen={setOpen}
+        open={open}
+        onClick={() => setOpen(!open)}
+      >
+        <div />
+        <div />
+        <div />
+      </StyledBurger>
+
       <UL open={open}>
         <li>
-          <NavLink exact to="/" activeClassName="hover" className="border">
+          <NavLink
+            onClick={() => setOpen(!open)}
+            exact
+            to="/"
+            activeClassName="hover"
+            className="border"
+          >
             MERCURY
           </NavLink>
         </li>
         <li>
-          <NavLink to="/venus" activeClassName="hover" className="border">
+          <NavLink
+            onClick={() => setOpen(!open)}
+            to="/venus"
+            activeClassName="hover"
+            className="border"
+          >
             VENUS
           </NavLink>
         </li>
         <li>
-          <NavLink to="/earth" activeClassName="hover" className="border">
+          <NavLink
+            onClick={() => setOpen(!open)}
+            to="/earth"
+            activeClassName="hover"
+            className="border"
+          >
             EARTH
           </NavLink>
         </li>
         <li>
-          <NavLink to="/mars" activeClassName="hover" className="border">
+          <NavLink
+            onClick={() => setOpen(!open)}
+            to="/mars"
+            activeClassName="hover"
+            className="border"
+          >
             MARS
           </NavLink>
         </li>
         <li>
-          <NavLink to="/jupiter" activeClassName="hover" className="border">
+          <NavLink
+            onClick={() => setOpen(!open)}
+            to="/jupiter"
+            activeClassName="hover"
+            className="border"
+          >
             JUPITER
           </NavLink>
         </li>
         <li>
-          <NavLink to="/saturn" activeClassName="hover" className="border">
+          <NavLink
+            onClick={() => setOpen(!open)}
+            to="/saturn"
+            activeClassName="hover"
+            className="border"
+          >
             SATURN
           </NavLink>
         </li>
         <li>
-          <NavLink to="/uranus" activeClassName="hover" className="border">
+          <NavLink
+            onClick={() => setOpen(!open)}
+            to="/uranus"
+            activeClassName="hover"
+            className="border"
+          >
             URANUS
           </NavLink>
         </li>
         <li>
-          <NavLink to="/neptune" activeClassName="hover" className="border">
+          <NavLink
+            onClick={() => setOpen(!open)}
+            to="/neptune"
+            activeClassName="hover"
+            className="border"
+          >
             NEPTUNE
           </NavLink>
         </li>
