@@ -27,11 +27,13 @@ const UL = styled.ul`
   @media (max-width: 790px) {
     margin: 0;
     flex-flow: column nowrap;
+    padding:0;
     background-color: rgb(2, 2, 37);
     position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
+    min-height:100vh;
+    height:auto;
     width: 300px;
     padding-top: 3.5rem;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
