@@ -16,7 +16,7 @@ const UL = styled.ul`
     align-self: center;
   }
   li:nth-child(8){
-    padding-bottom:50px;
+    padding-bottom:70px;
   }
 
   @media (max-width: 980px) {
