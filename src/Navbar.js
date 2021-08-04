@@ -1,6 +1,14 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
+import mercury from "./assets/planet-mercury.svg";
+import venus from "./assets/planet-venus.svg";
+import earth from "./assets/planet-earth.svg";
+import mars from "./assets/planet-mars.svg";
+import jupiter from "./assets/planet-jupiter.svg";
+import saturn from "./assets/planet-saturn.svg";
+import uranus from "./assets/planet-uranus.svg";
+import neptune from "./assets/planet-neptune.svg";
 
 const UL = styled.ul`
 
@@ -15,9 +23,7 @@ const UL = styled.ul`
   li {
     align-self: center;
   }
-  li:nth-child(8){
-    padding-bottom:70px;
-  }
+
 
   @media (max-width: 980px) {
     margin-top: 20px;
@@ -40,9 +46,22 @@ const UL = styled.ul`
     width: 300px;
     padding-top: 3.5rem;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
-       a{
-     margin-bottom:30px;npms
+  li:nth-child(8){
+    padding-bottom:70px;
+  }
+  li{
     
+    display:flex;
+    // align-items:center;
+    margin-left:25%;
+  }
+  li img{
+    width:10%;
+    margin-right:15px;
+    
+  }
+  a{
+   
   }
   }
 
@@ -85,6 +104,20 @@ const StyledBurger = styled.div`
 
 const NavBar = () => {
   const [open, setOpen] = useState();
+  const [size, setSize] = useState();
+  function useWindowSize() {
+    useLayoutEffect(() => {
+      function updateSize() {
+        setSize(window.innerWidth);
+      }
+      window.addEventListener("resize", updateSize);
+      updateSize();
+      return () => window.removeEventListener("resize", updateSize);
+    }, []);
+    return size;
+  }
+  useWindowSize();
+
   return (
     <main>
       <StyledBurger
@@ -98,87 +131,214 @@ const NavBar = () => {
       </StyledBurger>
 
       <UL open={open}>
-        <li>
-          <NavLink
-            onClick={() => setOpen(!open)}
-            exact
-            to="/"
-            activeClassName="hover"
-            className="border"
-          >
-            MERCURY
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            onClick={() => setOpen(!open)}
-            to="/venus"
-            activeClassName="hover"
-            className="border"
-          >
-            VENUS
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            onClick={() => setOpen(!open)}
-            to="/earth"
-            activeClassName="hover"
-            className="border"
-          >
-            EARTH
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            onClick={() => setOpen(!open)}
-            to="/mars"
-            activeClassName="hover"
-            className="border"
-          >
-            MARS
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            onClick={() => setOpen(!open)}
-            to="/jupiter"
-            activeClassName="hover"
-            className="border"
-          >
-            JUPITER
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            onClick={() => setOpen(!open)}
-            to="/saturn"
-            activeClassName="hover"
-            className="border"
-          >
-            SATURN
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            onClick={() => setOpen(!open)}
-            to="/uranus"
-            activeClassName="hover"
-            className="border"
-          >
-            URANUS
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            onClick={() => setOpen(!open)}
-            to="/neptune"
-            activeClassName="hover"
-            className="border"
-          >
-            NEPTUNE
-          </NavLink>
-        </li>
+        {size >= 790 ? (
+          <li>
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/"
+              activeClassName="hover"
+              className="border"
+            >
+              MERCURY
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <img src={mercury} alt="small pic of mercury" />
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/"
+              activeClassName="hover"
+              className="border"
+            >
+              MERCURY
+            </NavLink>
+          </li>
+        )}
+        {size >= 790 ? (
+          <li>
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/venus"
+              activeClassName="hover"
+              className="border"
+            >
+              VENUS
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <img src={venus} alt="small pic of mercury" />
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/venus"
+              activeClassName="hover"
+              className="border"
+            >
+              VENUS
+            </NavLink>
+          </li>
+        )}
+        {size >= 790 ? (
+          <li>
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/earth"
+              activeClassName="hover"
+              className="border"
+            >
+              EARTH
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <img src={earth} alt="small pic of mercury" />
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/earth"
+              activeClassName="hover"
+              className="border"
+            >
+              EARTH
+            </NavLink>
+          </li>
+        )}
+        {size >= 790 ? (
+          <li>
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/mars"
+              activeClassName="hover"
+              className="border"
+            >
+              MARS
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <img src={mars} alt="small pic of mercury" />
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/mars"
+              activeClassName="hover"
+              className="border"
+            >
+              MARS
+            </NavLink>
+          </li>
+        )}
+        {size >= 790 ? (
+          <li>
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/jupiter"
+              activeClassName="hover"
+              className="border"
+            >
+              JUPITER
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <img src={jupiter} alt="small pic of mercury" />
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/jupiter"
+              activeClassName="hover"
+              className="border"
+            >
+              JUPITER
+            </NavLink>
+          </li>
+        )}
+        {size >= 790 ? (
+          <li>
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/saturn"
+              activeClassName="hover"
+              className="border"
+            >
+              SATURN
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <img src={saturn} alt="small pic of mercury" />
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/saturn"
+              activeClassName="hover"
+              className="border"
+            >
+              SATURN
+            </NavLink>
+          </li>
+        )}
+        {size >= 790 ? (
+          <li>
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/uranus"
+              activeClassName="hover"
+              className="border"
+            >
+              URANUS
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <img src={uranus} alt="small pic of mercury" />
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/uranus"
+              activeClassName="hover"
+              className="border"
+            >
+              URANUS
+            </NavLink>
+          </li>
+        )}
+        {size >= 790 ? (
+          <li>
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/neptune"
+              activeClassName="hover"
+              className="border"
+            >
+              NEPTUNE
+            </NavLink>
+          </li>
+        ) : (
+          <li>
+            <img src={neptune} alt="small pic of mercury" />
+            <NavLink
+              onClick={() => setOpen(!open)}
+              exact
+              to="/neptune"
+              activeClassName="hover"
+              className="border"
+            >
+              NEPTUNE
+            </NavLink>
+          </li>
+        )}
       </UL>
     </main>
   );
