@@ -10,6 +10,7 @@ const PLANET = styled.section`
     grid-template-columns: 2fr 1fr;
     grid-auto-rows: minmax(100px, auto);
     gap: 20px;
+    z-index: -100;
   }
   .planetImage {
     text-align: center;
@@ -20,7 +21,7 @@ const PLANET = styled.section`
   }
   .icon {
     position: absolute;
-    top: 80%;
+
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30%;
@@ -124,7 +125,7 @@ const Mercury = () => {
   const [size, setSize] = useState();
   const [icon, setIcon] = useState(false);
   useEffect(() => {
-    setMercuryData(data[2]);
+    setMercuryData(data[0]);
     setIsLoading(false);
   }, []);
   function useWindowSize() {
@@ -139,7 +140,7 @@ const Mercury = () => {
     return size;
   }
   useWindowSize();
-  console.log(icon);
+
   return (
     <PLANET className="wrapper">
       <div>

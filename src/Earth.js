@@ -17,11 +17,10 @@ const PLANET = styled.section`
     grid-row: 1/3;
     justify-self: center;
     position: relative;
-    // z-index: 2;
+    margin-bottom: 40px;
   }
   .icon {
     position: absolute;
-    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30%;
@@ -31,6 +30,7 @@ const PLANET = styled.section`
   }
   .planetImage img {
     width: 100%;
+    z-index: 1;
   }
   .planetText h2 {
     font-size: 4rem;

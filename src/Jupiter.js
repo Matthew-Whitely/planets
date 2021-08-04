@@ -1,6 +1,7 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { data } from "./data.js";
 import mercuryImage from "./assets/planet-jupiter.svg";
+import dataIcon from "./assets/geology-jupiter.png";
 import internalMercuryImage from "./assets/planet-jupiter-internal.svg";
 import styled from "styled-components";
 const PLANET = styled.section`
@@ -15,6 +16,17 @@ const PLANET = styled.section`
     padding: 50px;
     grid-row: 1/3;
     justify-self: center;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  .icon {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+  }
+  .none {
+    display: none;
   }
   .planetImage img {
     width: 100%;
@@ -105,12 +117,12 @@ const PLANET = styled.section`
   }
 `;
 const Jupiter = () => {
-  console.log(useLayoutEffect);
   const [mercuryData, setMercuryData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [button, setButton] = useState(null);
   const [theMercuryImage, setTheMercuryImage] = useState(mercuryImage);
   const [size, setSize] = useState();
+  const [icon, setIcon] = useState(false);
   useEffect(() => {
     setMercuryData(data[4]);
     setIsLoading(false);
@@ -126,8 +138,8 @@ const Jupiter = () => {
     }, []);
     return size;
   }
-
   useWindowSize();
+
   return (
     <PLANET className="wrapper">
       <div>
@@ -135,7 +147,10 @@ const Jupiter = () => {
           <div>
             <div className="planetFlex">
               <div className="planetImage">
-                <img src={theMercuryImage} alt="Planet Jupiter" />
+                <img src={theMercuryImage} alt="Plaent Earth" />
+                <div className={icon ? "icon" : "none"}>
+                  <img src={dataIcon} alt="erath surface" />
+                </div>
               </div>
               {console.log(mercuryData)}
 
@@ -149,15 +164,17 @@ const Jupiter = () => {
                   onClick={() => {
                     setButton(mercuryData.overview.content);
                     setTheMercuryImage(mercuryImage);
+                    setIcon(false);
                   }}
                 >
                   OVERVIEW
                 </button>
-                {size >= 750 ? (
+                {size >= 790 ? (
                   <button
                     onClick={() => {
                       setButton(mercuryData.structure.content);
                       setTheMercuryImage(internalMercuryImage);
+                      setIcon(false);
                     }}
                   >
                     INTERNAL STRUCTURE
@@ -167,16 +184,18 @@ const Jupiter = () => {
                     onClick={() => {
                       setButton(mercuryData.structure.content);
                       setTheMercuryImage(internalMercuryImage);
+                      setIcon(false);
                     }}
                   >
                     STRUCTURE
                   </button>
                 )}
-                {size >= 750 ? (
+                {size >= 790 ? (
                   <button
                     onClick={() => {
                       setButton(mercuryData.geology.content);
                       setTheMercuryImage(mercuryImage);
+                      setIcon(true);
                     }}
                   >
                     SURFACE GEOLOGY
@@ -186,6 +205,7 @@ const Jupiter = () => {
                     onClick={() => {
                       setButton(mercuryData.geology.content);
                       setTheMercuryImage(mercuryImage);
+                      setIcon(true);
                     }}
                   >
                     SURFACE

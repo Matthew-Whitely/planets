@@ -7,6 +7,7 @@ const UL = styled.ul`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  z-index:99;
 
   li {
     align-self: center;

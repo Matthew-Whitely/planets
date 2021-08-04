@@ -2,6 +2,7 @@ import { useEffect, useState, useLayoutEffect } from "react";
 import { data } from "./data.js";
 import mercuryImage from "./assets/planet-venus.svg";
 import internalMercuryImage from "./assets/planet-venus-internal.svg";
+import dataIcon from "./assets/geology-venus.png";
 import styled from "styled-components";
 const PLANET = styled.section`
   .planetFlex {
@@ -15,6 +16,17 @@ const PLANET = styled.section`
     padding: 50px;
     grid-row: 1/3;
     justify-self: center;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  .icon {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+  }
+  .none {
+    display: none;
   }
   .planetImage img {
     width: 100%;
@@ -105,12 +117,12 @@ const PLANET = styled.section`
   }
 `;
 const Venus = () => {
-  console.log(useLayoutEffect);
   const [mercuryData, setMercuryData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [button, setButton] = useState(null);
   const [theMercuryImage, setTheMercuryImage] = useState(mercuryImage);
   const [size, setSize] = useState();
+  const [icon, setIcon] = useState(false);
   useEffect(() => {
     setMercuryData(data[1]);
     setIsLoading(false);
@@ -135,7 +147,10 @@ const Venus = () => {
           <div>
             <div className="planetFlex">
               <div className="planetImage">
-                <img src={theMercuryImage} alt="Planet Venus" />
+                <img src={theMercuryImage} alt="Plaent Earth" />
+                <div className={icon ? "icon" : "none"}>
+                  <img src={dataIcon} alt="erath surface" />
+                </div>
               </div>
               {console.log(mercuryData)}
 
@@ -149,6 +164,7 @@ const Venus = () => {
                   onClick={() => {
                     setButton(mercuryData.overview.content);
                     setTheMercuryImage(mercuryImage);
+                    setIcon(false);
                   }}
                 >
                   OVERVIEW
@@ -158,6 +174,7 @@ const Venus = () => {
                     onClick={() => {
                       setButton(mercuryData.structure.content);
                       setTheMercuryImage(internalMercuryImage);
+                      setIcon(false);
                     }}
                   >
                     INTERNAL STRUCTURE
@@ -167,6 +184,7 @@ const Venus = () => {
                     onClick={() => {
                       setButton(mercuryData.structure.content);
                       setTheMercuryImage(internalMercuryImage);
+                      setIcon(false);
                     }}
                   >
                     STRUCTURE
@@ -177,6 +195,7 @@ const Venus = () => {
                     onClick={() => {
                       setButton(mercuryData.geology.content);
                       setTheMercuryImage(mercuryImage);
+                      setIcon(true);
                     }}
                   >
                     SURFACE GEOLOGY
@@ -186,6 +205,7 @@ const Venus = () => {
                     onClick={() => {
                       setButton(mercuryData.geology.content);
                       setTheMercuryImage(mercuryImage);
+                      setIcon(true);
                     }}
                   >
                     SURFACE
