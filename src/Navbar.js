@@ -133,13 +133,7 @@ const NavBar = () => {
       <UL open={open}>
         {size >= 790 ? (
           <li>
-            <NavLink
-              onClick={() => setOpen(!open)}
-              exact
-              to="/"
-              activeClassName="hover"
-              className="border"
-            >
+            <NavLink exact to="/" activeClassName="hover" className="border">
               MERCURY
             </NavLink>
           </li>
@@ -160,7 +154,6 @@ const NavBar = () => {
         {size >= 790 ? (
           <li>
             <NavLink
-              onClick={() => setOpen(!open)}
               exact
               to="/venus"
               activeClassName="hover"
@@ -186,7 +179,6 @@ const NavBar = () => {
         {size >= 790 ? (
           <li>
             <NavLink
-              onClick={() => setOpen(!open)}
               exact
               to="/earth"
               activeClassName="hover"
@@ -212,7 +204,6 @@ const NavBar = () => {
         {size >= 790 ? (
           <li>
             <NavLink
-              onClick={() => setOpen(!open)}
               exact
               to="/mars"
               activeClassName="hover"
@@ -238,7 +229,6 @@ const NavBar = () => {
         {size >= 790 ? (
           <li>
             <NavLink
-              onClick={() => setOpen(!open)}
               exact
               to="/jupiter"
               activeClassName="hover"
@@ -264,7 +254,6 @@ const NavBar = () => {
         {size >= 790 ? (
           <li>
             <NavLink
-              onClick={() => setOpen(!open)}
               exact
               to="/saturn"
               activeClassName="hover"
@@ -290,7 +279,6 @@ const NavBar = () => {
         {size >= 790 ? (
           <li>
             <NavLink
-              onClick={() => setOpen(!open)}
               exact
               to="/uranus"
               activeClassName="hover"
@@ -316,7 +304,6 @@ const NavBar = () => {
         {size >= 790 ? (
           <li>
             <NavLink
-              onClick={() => setOpen(!open)}
               exact
               to="/neptune"
               activeClassName="hover"
