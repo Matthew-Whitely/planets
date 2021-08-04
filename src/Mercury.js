@@ -1,6 +1,7 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { data } from "./data.js";
 import mercuryImage from "./assets/planet-mercury.svg";
+import dataIcon from "./assets/geology-mercury.png";
 import internalMercuryImage from "./assets/planet-mercury-internal.svg";
 import styled from "styled-components";
 const PLANET = styled.section`
@@ -15,6 +16,17 @@ const PLANET = styled.section`
     padding: 50px;
     grid-row: 1/3;
     justify-self: center;
+    position: relative;
+  }
+  .icon {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+  }
+  .none {
+    display: none;
   }
   .planetImage img {
     width: 100%;
@@ -49,7 +61,7 @@ const PLANET = styled.section`
     cursor: pointer;
   }
   button:hover {
-    background-color: orange;
+    background-color: rgb(65, 158, 187);
   }
   button:active,
   button:focus {
@@ -105,14 +117,14 @@ const PLANET = styled.section`
   }
 `;
 const Mercury = () => {
-  console.log(useLayoutEffect);
   const [mercuryData, setMercuryData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [button, setButton] = useState(null);
   const [theMercuryImage, setTheMercuryImage] = useState(mercuryImage);
   const [size, setSize] = useState();
+  const [icon, setIcon] = useState(false);
   useEffect(() => {
-    setMercuryData(data[0]);
+    setMercuryData(data[2]);
     setIsLoading(false);
   }, []);
   function useWindowSize() {
@@ -127,6 +139,7 @@ const Mercury = () => {
     return size;
   }
   useWindowSize();
+  console.log(icon);
   return (
     <PLANET className="wrapper">
       <div>
@@ -134,7 +147,10 @@ const Mercury = () => {
           <div>
             <div className="planetFlex">
               <div className="planetImage">
-                <img src={theMercuryImage} alt="Planet Mercury" />
+                <img src={theMercuryImage} alt="Plaent Earth" />
+                <div className={icon ? "icon" : "none"}>
+                  <img src={dataIcon} alt="erath surface" />
+                </div>
               </div>
               {console.log(mercuryData)}
 
@@ -148,6 +164,7 @@ const Mercury = () => {
                   onClick={() => {
                     setButton(mercuryData.overview.content);
                     setTheMercuryImage(mercuryImage);
+                    setIcon(false);
                   }}
                 >
                   OVERVIEW
@@ -157,6 +174,7 @@ const Mercury = () => {
                     onClick={() => {
                       setButton(mercuryData.structure.content);
                       setTheMercuryImage(internalMercuryImage);
+                      setIcon(false);
                     }}
                   >
                     INTERNAL STRUCTURE
@@ -166,6 +184,7 @@ const Mercury = () => {
                     onClick={() => {
                       setButton(mercuryData.structure.content);
                       setTheMercuryImage(internalMercuryImage);
+                      setIcon(false);
                     }}
                   >
                     STRUCTURE
@@ -176,6 +195,7 @@ const Mercury = () => {
                     onClick={() => {
                       setButton(mercuryData.geology.content);
                       setTheMercuryImage(mercuryImage);
+                      setIcon(true);
                     }}
                   >
                     SURFACE GEOLOGY
@@ -185,6 +205,7 @@ const Mercury = () => {
                     onClick={() => {
                       setButton(mercuryData.geology.content);
                       setTheMercuryImage(mercuryImage);
+                      setIcon(true);
                     }}
                   >
                     SURFACE

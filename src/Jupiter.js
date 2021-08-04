@@ -49,7 +49,7 @@ const PLANET = styled.section`
     cursor: pointer;
   }
   button:hover {
-    background-color: orange;
+    background-color: rgb(216, 58, 52);
   }
   button:active,
   button:focus {
