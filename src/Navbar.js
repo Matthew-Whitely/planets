@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import mercury from "./assets/planet-mercury.svg";
 import venus from "./assets/planet-venus.svg";
 import earth from "./assets/planet-earth.svg";
@@ -45,7 +45,9 @@ const UL = styled.ul`
     height:auto;
     width: 300px;
     padding-top: 3.5rem;
-    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+    transform: ${({ open }) => (!open ? "translateX(100%)" : "translateX(0)")};
+
+
   li:nth-child(8){
     padding-bottom:70px;
   }
@@ -81,7 +83,7 @@ const StyledBurger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => (open ? "white" : "white")};
+    background-color: white;
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
@@ -97,14 +99,16 @@ const StyledBurger = styled.div`
       transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0deg)")};
     }
   }
+
   @media (max-width: 790px) {
     visibility: visible;
   }
 `;
 
 const NavBar = () => {
-  const [open, setOpen] = useState();
+  const [open, setOpen] = useState(false);
   const [size, setSize] = useState();
+
   function useWindowSize() {
     useLayoutEffect(() => {
       function updateSize() {
@@ -112,32 +116,108 @@ const NavBar = () => {
       }
       window.addEventListener("resize", updateSize);
       updateSize();
+
       return () => window.removeEventListener("resize", updateSize);
     }, []);
+
     return size;
   }
+
   useWindowSize();
 
+  useEffect(() => {
+    if (size >= 790) {
+      setOpen(false);
+    }
+  }, [size]);
   return (
     <main>
-      <StyledBurger
-        setOpen={setOpen}
-        open={open}
-        onClick={() => setOpen(!open)}
-      >
+      <StyledBurger open={open} onClick={() => setOpen(!open)}>
         <div />
         <div />
         <div />
       </StyledBurger>
 
-      <UL open={open}>
-        {size >= 790 ? (
+      {size >= 790 ? (
+        <UL size={size}>
           <li>
             <NavLink exact to="/" activeClassName="hover" className="border">
               MERCURY
             </NavLink>
           </li>
-        ) : (
+          <li>
+            <NavLink
+              exact
+              to="/venus"
+              activeClassName="hover"
+              className="border"
+            >
+              VENUS
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/earth"
+              activeClassName="hover"
+              className="border"
+            >
+              EARTH
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/mars"
+              activeClassName="hover"
+              className="border"
+            >
+              MARS
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/jupiter"
+              activeClassName="hover"
+              className="border"
+            >
+              JUPITER
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/saturn"
+              activeClassName="hover"
+              className="border"
+            >
+              SATURN
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/uranus"
+              activeClassName="hover"
+              className="border"
+            >
+              URANUS
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/neptune"
+              activeClassName="hover"
+              className="border"
+            >
+              NEPTUNE
+            </NavLink>
+          </li>
+        </UL>
+      ) : (
+        <UL open={open} size={size}>
           <li>
             <img src={mercury} alt="small pic of mercury" />
             <NavLink
@@ -150,21 +230,8 @@ const NavBar = () => {
               MERCURY
             </NavLink>
           </li>
-        )}
-        {size >= 790 ? (
           <li>
-            <NavLink
-              exact
-              to="/venus"
-              activeClassName="hover"
-              className="border"
-            >
-              VENUS
-            </NavLink>
-          </li>
-        ) : (
-          <li>
-            <img src={venus} alt="small pic of mercury" />
+            <img src={venus} alt="small pic of venus" />
             <NavLink
               onClick={() => setOpen(!open)}
               exact
@@ -175,21 +242,9 @@ const NavBar = () => {
               VENUS
             </NavLink>
           </li>
-        )}
-        {size >= 790 ? (
+
           <li>
-            <NavLink
-              exact
-              to="/earth"
-              activeClassName="hover"
-              className="border"
-            >
-              EARTH
-            </NavLink>
-          </li>
-        ) : (
-          <li>
-            <img src={earth} alt="small pic of mercury" />
+            <img src={earth} alt="small pic of earth" />
             <NavLink
               onClick={() => setOpen(!open)}
               exact
@@ -200,21 +255,8 @@ const NavBar = () => {
               EARTH
             </NavLink>
           </li>
-        )}
-        {size >= 790 ? (
           <li>
-            <NavLink
-              exact
-              to="/mars"
-              activeClassName="hover"
-              className="border"
-            >
-              MARS
-            </NavLink>
-          </li>
-        ) : (
-          <li>
-            <img src={mars} alt="small pic of mercury" />
+            <img src={mars} alt="small pic of mars" />
             <NavLink
               onClick={() => setOpen(!open)}
               exact
@@ -225,19 +267,7 @@ const NavBar = () => {
               MARS
             </NavLink>
           </li>
-        )}
-        {size >= 790 ? (
-          <li>
-            <NavLink
-              exact
-              to="/jupiter"
-              activeClassName="hover"
-              className="border"
-            >
-              JUPITER
-            </NavLink>
-          </li>
-        ) : (
+
           <li>
             <img src={jupiter} alt="small pic of mercury" />
             <NavLink
@@ -250,19 +280,6 @@ const NavBar = () => {
               JUPITER
             </NavLink>
           </li>
-        )}
-        {size >= 790 ? (
-          <li>
-            <NavLink
-              exact
-              to="/saturn"
-              activeClassName="hover"
-              className="border"
-            >
-              SATURN
-            </NavLink>
-          </li>
-        ) : (
           <li>
             <img src={saturn} alt="small pic of mercury" />
             <NavLink
@@ -275,19 +292,7 @@ const NavBar = () => {
               SATURN
             </NavLink>
           </li>
-        )}
-        {size >= 790 ? (
-          <li>
-            <NavLink
-              exact
-              to="/uranus"
-              activeClassName="hover"
-              className="border"
-            >
-              URANUS
-            </NavLink>
-          </li>
-        ) : (
+
           <li>
             <img src={uranus} alt="small pic of mercury" />
             <NavLink
@@ -300,19 +305,7 @@ const NavBar = () => {
               URANUS
             </NavLink>
           </li>
-        )}
-        {size >= 790 ? (
-          <li>
-            <NavLink
-              exact
-              to="/neptune"
-              activeClassName="hover"
-              className="border"
-            >
-              NEPTUNE
-            </NavLink>
-          </li>
-        ) : (
+
           <li>
             <img src={neptune} alt="small pic of mercury" />
             <NavLink
@@ -325,8 +318,8 @@ const NavBar = () => {
               NEPTUNE
             </NavLink>
           </li>
-        )}
-      </UL>
+        </UL>
+      )}
     </main>
   );
 };

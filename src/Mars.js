@@ -152,7 +152,6 @@ const Mars = () => {
                   <img src={dataIcon} alt="erath surface" />
                 </div>
               </div>
-              {console.log(mercuryData)}
 
               <div className="planetText">
                 <h2>{mercuryData.name}</h2>

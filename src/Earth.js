@@ -140,7 +140,7 @@ const Earth = () => {
     return size;
   }
   useWindowSize();
-  console.log(icon);
+
   return (
     <PLANET className="wrapper">
       <div>
@@ -153,7 +153,6 @@ const Earth = () => {
                   <img src={dataIcon} alt="erath surface" />
                 </div>
               </div>
-              {console.log(mercuryData)}
 
               <div className="planetText">
                 <h2>{mercuryData.name}</h2>
